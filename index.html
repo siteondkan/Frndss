@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial; 
+            text-align: center; 
+            margin-top: 80px; 
+            background: #f0f0f0;
+        }
+        button { 
+            padding: 15px 40px; 
+            font-size: 22px; 
+            background: #25D366; 
+            color: white; 
+            border: none; 
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .details { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 15px; 
+            max-width: 340px; 
+            margin: 20px auto;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        hr { margin: 18px 0; border: 1px solid #eee; }
+        h2 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Welcome 👋</h1>
+    <button onclick="checkPass()">START</button>
+    
+    <script>
+        function checkPass() {
+            let pass = prompt("Enter password:");
+            if(pass === "friends2026") {
+                document.body.innerHTML = `
+                    <div class="details">
+                        <h2>Friends Details</h2>
+                        <p><b>1. Joan Thomas</b><br>
+                           School: G.H.S.S Vechoochira<br>
+                           Phone: Samsung Galaxy A21s</p>
+                        <hr>
+                        <p><b>2. Anandhu Ratheesh</b><br>
+                           School: S.N.D.P School Venkurinji<br>
+                           Phone: Samsung Galaxy A20</p>
+                    </div>
+                `;
+            } else {
+                alert("Wrong password ❌");
+            }
+        }
+    </script>
+</body>
+</html>
