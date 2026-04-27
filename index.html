@@ -7,17 +7,18 @@
         body { 
             font-family: Arial; 
             text-align: center; 
-            margin-top: 80px; 
+            margin-top: 50px; 
             background: #f0f0f0;
         }
         button { 
-            padding: 15px 40px; 
-            font-size: 22px; 
+            padding: 12px 30px; 
+            font-size: 18px; 
             background: #25D366; 
             color: white; 
             border: none; 
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
+            margin: 5px;
         }
         .details { 
             background: white; 
@@ -28,8 +29,21 @@
             text-align: left;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        .photo-box {
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #25D366;
+        }
         hr { margin: 18px 0; border: 1px solid #eee; }
         h2 { text-align: center; color: #333; }
+        .person { margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -39,21 +53,45 @@
     <script>
         function checkPass() {
             let pass = prompt("Enter password:");
-            if(pass === "friends2026") {
+            if(pass === "1234555") {
                 document.body.innerHTML = `
                     <div class="details">
                         <h2>Friends Details</h2>
-                        <p><b>1. Joan Thomas</b><br>
-                           School: G.H.S.S Vechoochira<br>
-                           Phone: Samsung Galaxy A21s</p>
+                        
+                        <div class="person">
+                            <p><b>1. Joan Thomas</b><br>
+                               School: G.H.S.S Vechoochira<br>
+                               Phone: Samsung Galaxy A21s</p>
+                            <button onclick="showPhoto('joan')">View Photo</button>
+                            <div id="photo-joan" class="photo-box">
+                                <img src="joan.jpg" alt="Joan" class="profile-pic">
+                            </div>
+                        </div>
+                        
                         <hr>
-                        <p><b>2. Anandhu Ratheesh</b><br>
-                           School: S.N.D.P School Venkurinji<br>
-                           Phone: Samsung Galaxy A20</p>
+                        
+                        <div class="person">
+                            <p><b>2. Anandhu Ratheesh</b><br>
+                               School: S.N.D.P School Venkurinji<br>
+                               Phone: Samsung Galaxy A20</p>
+                            <button onclick="showPhoto('anandhu')">View Photo</button>
+                            <div id="photo-anandhu" class="photo-box">
+                                <img src="anandhu.jpg" alt="Anandhu" class="profile-pic">
+                            </div>
+                        </div>
                     </div>
                 `;
             } else {
                 alert("Wrong password ❌");
+            }
+        }
+
+        function showPhoto(person) {
+            let photoDiv = document.getElementById('photo-' + person);
+            if(photoDiv.style.display === 'none' || photoDiv.style.display === '') {
+                photoDiv.style.display = 'block';
+            } else {
+                photoDiv.style.display = 'none';
             }
         }
     </script>
